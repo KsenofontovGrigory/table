@@ -1,0 +1,4 @@
+export const FETCH_BEERS = 'POST/FETCH_POSTS'
+export const REQUEST_BEERS = 'POST/REQUEST_POSTS'
+export const SHOW_LOADER = 'APP/SHOW_LOADER'
+export const HIDE_LOADER = 'APP/HIDE_LOADER'
