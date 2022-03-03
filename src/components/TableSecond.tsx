@@ -92,8 +92,8 @@ interface Props {
     beers: Beers[];
 }
 
-const Table = ({beers}: Props) => {
-
+const TableSecond = ({beers}: Props) => {
+    console.log(beers)
     const arr = beers.map((item) => {
         const rows: Rows =
             {
@@ -113,36 +113,27 @@ const Table = ({beers}: Props) => {
         {field: 'tagline', headerName: 'Tagline', width: 200},
         {field: 'firstBrewed', headerName: 'First brewed', width: 100},
         {field: 'description', headerName: "Description", width: 200},
-        {field: 'image_url', headerName: "Image", width: 200, renderCell: (params: any) => <img alt="beer" height="100%" src={params.value}/>},
+        {
+            field: 'image_url',
+            headerName: "Image",
+            width: 200,
+            renderCell: (params: any) => <img alt="text" height="100%" src={params.value}/>
+        },
         {field: 'volume', headerName: 'Volume', width: 130}
     ];
 
     return (
-    <div className="redux-table" style={{height: '100vh', width: '100%'}}>
-        <DataGrid
-            rows={arr}
-            rowHeight={200}
-            columns={columns}
-            pageSize={8}
-            rowsPerPageOptions={[5]}
-            checkboxSelection
-        />
-    </div>
-
+        <div className="redux-table" style={{height: '100vh', width: '100%'}}>
+            <DataGrid
+                rows={arr}
+                rowHeight={150}
+                columns={columns}
+                pageSize={5}
+                rowsPerPageOptions={[5, 10, 15]}
+                checkboxSelection
+            />
+        </div>
     );
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     // return (
@@ -177,4 +168,4 @@ const Table = ({beers}: Props) => {
 
 };
 
-export default Table;
+export default TableSecond;

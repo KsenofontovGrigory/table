@@ -3,18 +3,17 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {fetchBeers} from '../redux/actions'
 
-import Table from "./Table";
+import Table, {Beers} from "./Table";
 
-interface FetchedBeers {
-
+interface Props {
+  fetchBeers: () => void,
+  beers: {
+    beers: Beers[]
+  }
 }
 
-interface beers {
-
-}
-
-class FetchBeers extends React.Component {
-  constructor({props} = FetchedBeers) {
+class FetchBeers extends React.Component<Props> {
+  constructor(props : Props) {
     super(props)
 
     this.state = {
@@ -28,7 +27,6 @@ class FetchBeers extends React.Component {
   }
 
   render() {
-    console.log(fetchBeers)
     return (
       <Table beers={this.props.beers.beers} />
     )
@@ -39,7 +37,7 @@ const mapDispatchToProps = {
   fetchBeers
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: any) => ({
   beers: state.beers
 })
 

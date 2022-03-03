@@ -4,7 +4,7 @@ const initialState = {
   beers: []
 }
 
-export const postsReducer = (state = initialState, action) => {
+export const postsReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case FETCH_BEERS:
       return { ...state, beers: action.payload }

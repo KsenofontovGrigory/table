@@ -1,6 +1,7 @@
 import {takeEvery, put, call} from 'redux-saga/effects'
 import {FETCH_BEERS, REQUEST_BEERS} from './types'
 import {hideLoader, showLoader} from './actions'
+import {Beers} from "../components/Table";
 
 export function* sagaWatcher() {
   yield takeEvery(REQUEST_BEERS, sagaWorker)
@@ -9,7 +10,7 @@ export function* sagaWatcher() {
 function* sagaWorker() {
   try {
     yield put(showLoader())
-    const payload = yield call(fetchPosts)
+    const payload: Beers[] = yield call(fetchPosts)
     yield put({ type: FETCH_BEERS, payload })
     yield put(hideLoader())
   } catch (e) {
