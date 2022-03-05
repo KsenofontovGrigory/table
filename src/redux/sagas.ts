@@ -1,24 +1,22 @@
-import {takeEvery, put, call} from 'redux-saga/effects'
-import {FETCH_BEERS, REQUEST_BEERS} from './types'
-import {hideLoader, showLoader} from './actions'
-import {Beers} from "../components/Table";
+import { takeEvery, put, call } from "redux-saga/effects";
+import { FETCH_BEERS, REQUEST_BEERS } from "./types";
+import { Beers } from "../interfaces";
 
 export function* sagaWatcher() {
-  yield takeEvery(REQUEST_BEERS, sagaWorker)
+  yield takeEvery(REQUEST_BEERS, sagaWorker);
 }
 
 function* sagaWorker() {
   try {
-    yield put(showLoader())
-    const payload: Beers[] = yield call(fetchPosts)
-    yield put({ type: FETCH_BEERS, payload })
-    yield put(hideLoader())
+    const payload: Beers[] = yield call(fetchPosts);
+    yield put({ type: FETCH_BEERS, payload });
   } catch (e) {
-    yield put(hideLoader())
+    // eslint-disable-next-line no-console
+    console.log("Error");
   }
 }
 
 async function fetchPosts() {
-  const response = await fetch('https://api.punkapi.com/v2/beers')
-  return await response.json()
+  const response = await fetch("https://api.punkapi.com/v2/beers");
+  return await response.json();
 }

@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import FetchBeers from "./components/FetchBeers";
+// import FetchBeers from "./components/FetchBeers";
 import FetchBeersSecondPage from "./components/FetchBeersSecondPage";
 
-function App() {
+const App: React.FC = () => {
   return (
     <div>
-        <FetchBeers />
-        <FetchBeersSecondPage />
+      {/* <FetchBeers />*/}
+      <FetchBeersSecondPage />
     </div>
   );
-}
+};
 
 export default App;

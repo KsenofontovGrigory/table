@@ -1,19 +1,22 @@
-import {HIDE_LOADER, REQUEST_BEERS, SHOW_LOADER} from './types'
+import { CHANGE_BEERS, DELETE_BEERS, REQUEST_BEERS } from "./types";
+import { Beers, TypeAction } from "../interfaces";
 
-export function showLoader() {
+export const fetchBeers = (): TypeAction => {
   return {
-    type: SHOW_LOADER
-  }
-}
+    type: REQUEST_BEERS,
+  };
+};
 
-export function hideLoader() {
+export const removeBeers = (beers: Beers[]) => {
   return {
-    type: HIDE_LOADER
-  }
-}
+    type: DELETE_BEERS,
+    payload: beers,
+  };
+};
 
-export function fetchBeers() {
+export const changeBeers = (beers: Beers[]) => {
   return {
-    type: REQUEST_BEERS
-  }
-}
+    type: CHANGE_BEERS,
+    payload: beers,
+  };
+};

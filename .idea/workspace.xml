@@ -2,19 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b122025d-7aa8-45eb-8bf1-e5fb82eac903" name="Default Changelist" comment="In process">
-      <change afterPath="$PROJECT_DIR$/src/components/FetchBeersSecondPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/TableSecond.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interfaces.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/beersReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/FetchBeers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FetchBeers.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Loader.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FetchBeersSecondPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FetchBeersSecondPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Table.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TableSecond.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TableSecond.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/appReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/appReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/postsReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/postsReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/appReducer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/postsReducer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/rootReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/rootReducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/sagas.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/sagas.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serviceWorker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/serviceWorker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +33,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -95,11 +113,17 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.19.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="10.17.60" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs_interpreter_path" value="$USER_HOME$/.nvm/versions/node/v16.14.0/bin/node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -122,7 +146,24 @@
       <workItem from="1584514607276" duration="6613000" />
       <workItem from="1646211252311" duration="490000" />
       <workItem from="1646211888092" duration="20170000" />
-      <workItem from="1646290933966" duration="24826000" />
+      <workItem from="1646290933966" duration="25871000" />
+      <workItem from="1646377175699" duration="1456000" />
+      <workItem from="1646378654309" duration="747000" />
+      <workItem from="1646379423550" duration="375000" />
+      <workItem from="1646379819168" duration="4728000" />
+      <workItem from="1646384570273" duration="1145000" />
+      <workItem from="1646385736678" duration="201000" />
+      <workItem from="1646385958576" duration="1732000" />
+      <workItem from="1646387944967" duration="97000" />
+      <workItem from="1646388067029" duration="391000" />
+      <workItem from="1646388476723" duration="136000" />
+      <workItem from="1646388629713" duration="86000" />
+      <workItem from="1646388731508" duration="131000" />
+      <workItem from="1646388879416" duration="145000" />
+      <workItem from="1646389040108" duration="236000" />
+      <workItem from="1646389295428" duration="16519000" />
+      <workItem from="1646463412511" duration="14169000" />
+      <workItem from="1646479416560" duration="7760000" />
     </task>
     <task id="LOCAL-00001" summary="In process">
       <created>1646232811543</created>
@@ -131,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646232811543</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="In process">
+      <created>1646318634120</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1646318634120</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -177,6 +225,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="In process" />
     <option name="LAST_COMMIT_MESSAGE" value="In process" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/package.json">

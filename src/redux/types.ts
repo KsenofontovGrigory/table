@@ -1,4 +1,4 @@
-export const FETCH_BEERS = 'POST/FETCH_POSTS'
-export const REQUEST_BEERS = 'POST/REQUEST_POSTS'
-export const SHOW_LOADER = 'APP/SHOW_LOADER'
-export const HIDE_LOADER = 'APP/HIDE_LOADER'
+export const FETCH_BEERS = "POST/BEERS";
+export const DELETE_BEERS = "POST/DELETE_BEERS";
+export const CHANGE_BEERS = "POST/CHANGE_BEERS";
+export const REQUEST_BEERS = "POST/BEERS";

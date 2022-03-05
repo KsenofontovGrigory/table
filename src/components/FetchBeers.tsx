@@ -1,44 +1,36 @@
-import React from 'react'
+import React from "react";
 
-import {connect} from 'react-redux'
-import {fetchBeers} from '../redux/actions'
+import { connect } from "react-redux";
+import { fetchBeers } from "../redux/actions";
 
-import Table, {Beers} from "./Table";
-
-interface Props {
-  fetchBeers: () => void,
-  beers: {
-    beers: Beers[]
-  }
-}
+import Table from "./Table";
+import { Props } from "../interfaces";
 
 class FetchBeers extends React.Component<Props> {
-  constructor(props : Props) {
-    super(props)
+  constructor(props: Props) {
+    super(props);
 
     this.state = {
-      beers: []
-    }
+      beers: [],
+    };
   }
 
   componentDidMount() {
-    const { fetchBeers } = this.props
-    fetchBeers()
+    const { fetchBeers } = this.props;
+    fetchBeers();
   }
 
   render() {
-    return (
-      <Table beers={this.props.beers.beers} />
-    )
+    return <Table beers={this.props.beers.beers} />;
   }
 }
 
 const mapDispatchToProps = {
-  fetchBeers
-}
+  fetchBeers,
+};
 
-const mapStateToProps = (state: any) => ({
-  beers: state.beers
-})
+const mapStateToProps = (state: Props) => ({
+  beers: state.beers,
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(FetchBeers)
+export default connect(mapStateToProps, mapDispatchToProps)(FetchBeers);
