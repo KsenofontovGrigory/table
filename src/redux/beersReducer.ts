@@ -1,10 +1,8 @@
 import { CHANGE_BEERS, DELETE_BEERS, FETCH_BEERS } from "./types";
-import { State, TypeAction } from "../interfaces";
+import { Beers, State, TypeAction } from '../interfaces';
 
 const initialState = {
   beers: [],
-  filterBeers: [],
-  changeBeers: [],
 };
 
 export const beersReducer = (
@@ -16,19 +14,21 @@ export const beersReducer = (
       return { ...state, beers: action.payload };
     case DELETE_BEERS:
       return {
-        ...state,
-        filterBeers: action.payload?.filter(() => {
-          // eslint-disable-next-line no-console
-          console.log(111);
+        ...state, beers: state.beers?.filter((item: any) => {
+          if (item.id !== action.payload) {
+            return item;
+          }
         }),
       };
     case CHANGE_BEERS:
       return {
-        ...state,
-        changeBeers: action.payload?.filter(() => {
-          // eslint-disable-next-line no-console
-          console.log(222);
-        }),
+        ...state, beers: state.beers?.map((item: any) => {
+          // @ts-ignore
+          if (item.id === action.payload.id) {
+            return action.payload
+          }
+          return item
+        })
       };
     default:
       return state;

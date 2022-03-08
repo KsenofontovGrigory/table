@@ -7,16 +7,16 @@ export const fetchBeers = (): TypeAction => {
   };
 };
 
-export const removeBeers = (beers: Beers[]) => {
+export const removeBeers = (rowID: number) => {
   return {
     type: DELETE_BEERS,
-    payload: beers,
+    payload: rowID,
   };
 };
 
-export const changeBeers = (beers: Beers[]) => {
+export const changeBeers = (row: Beers) => {
   return {
     type: CHANGE_BEERS,
-    payload: beers,
+    payload: row,
   };
 };

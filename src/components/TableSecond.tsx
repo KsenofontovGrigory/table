@@ -1,24 +1,26 @@
 // import { useState } from "react";
-import React from "react";
+import React, { ChangeEvent, useState } from 'react';
 
 // import { DataGrid, GridCellParams } from "@mui/x-data-grid";
 // import { useDemoData } from "@material-ui/x-grid-data-generator";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import Checkbox from "@mui/material/Checkbox";
-import DeleteIcon from "@mui/icons-material/Delete";
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import Checkbox from '@mui/material/Checkbox';
+import DeleteIcon from '@mui/icons-material/Delete';
 
-import { PropsBeers } from "../interfaces";
+import { PropsBeers } from '../interfaces';
 // import { Rows } from "../interfaces";
-import { changeBeers, removeBeers } from "../redux/actions";
-import { useDispatch } from "react-redux";
+import { removeBeers } from '../redux/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import ButtonSubmit from './button-submit';
 
 const TableSecond: React.FC<PropsBeers> = ({ beers }: PropsBeers) => {
+
   // const arr = beers.map((item) => {
   //   const rows: Rows = {
   //     id: item.id,
@@ -72,51 +74,87 @@ const TableSecond: React.FC<PropsBeers> = ({ beers }: PropsBeers) => {
   //   </div>
   // );
 
-  const label = { inputProps: { "aria-label": "Checkbox demo" } };
+  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
   const dispatch = useDispatch();
 
+  const [changeButton, setChangeButton]: any = useState('...')
+
+  const [inputBeers, setInputBeers]: any = useState({});
+
+  const onHandleDelete = (rowID: number) => {
+    dispatch(removeBeers(rowID));
+  };
+
+  // const onHandlerChangeInput = (row: any) => {
+  //   setInputBeers()
+  //   console.log(row);
+  //   console.log(inputBeers);
+  // }
+
+  const handleChangeDataBeers = (e: ChangeEvent<HTMLInputElement>) => {
+    const {value, name} = e.target
+    setInputBeers((prev: any) => ({...prev, [name]: value}))
+  }
+
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ minWidth: 650 }} aria-label='simple table'>
         <TableHead>
           <TableRow>
-            <TableCell align="center">Checkbox</TableCell>
-            <TableCell align="center">Name</TableCell>
-            <TableCell align="center">Tagline</TableCell>
-            <TableCell align="center">First brewed</TableCell>
-            <TableCell align="center">Description</TableCell>
-            <TableCell align="center">Image</TableCell>
-            <TableCell align="center">Delete</TableCell>
-            <TableCell align="center">Change</TableCell>
+            <TableCell align='center'>Checkbox</TableCell>
+            <TableCell align='center'>Name</TableCell>
+            <TableCell align='center'>Tagline</TableCell>
+            <TableCell align='center'>First brewed</TableCell>
+            <TableCell align='center'>Description</TableCell>
+            <TableCell align='center'>Image</TableCell>
+            <TableCell align='center'>Delete</TableCell>
+            <TableCell align='center'>Change</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {beers?.map((row) => (
             <TableRow
               key={row.name}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell align="center">
+              <TableCell align='center'>
                 <Checkbox {...label} />
               </TableCell>
-              <TableCell align="center">{row.name}</TableCell>
-              <TableCell align="center">{row.tagline}</TableCell>
-              <TableCell align="center">{row.first_brewed}</TableCell>
-              <TableCell align="center">{row.description}</TableCell>
-              <TableCell align="center">
-                <img width="50px" src={row.image_url} alt="text" />
+              {inputBeers.id === row.id
+                ?
+                <TableCell>
+                  <input
+                    onChange={handleChangeDataBeers}
+                    name='name'
+                    value={inputBeers.name}
+                    type='text' />
+                </TableCell>
+                :
+                <TableCell align='center'>{row.name}</TableCell>
+              }
+              <TableCell align='center'>{row.tagline}</TableCell>
+              <TableCell align='center'>{row.first_brewed}</TableCell>
+              <TableCell align='center'>{row.description}</TableCell>
+              <TableCell align='center'>
+                <img width='50px' src={row.image_url} alt='text' />
               </TableCell>
-              <TableCell align="center">
+              <TableCell align='center'>
                 <DeleteIcon
-                  onClick={() => dispatch(removeBeers(beers))}
+                  onClick={() => onHandleDelete(row.id)}
                 ></DeleteIcon>
               </TableCell>
               <TableCell
-                onClick={() => dispatch(changeBeers(beers))}
-                align="center"
+                align='center'
               >
-                ...
+                <ButtonSubmit
+                  dispatch={dispatch}
+                  changeButton={changeButton}
+                  inputBeers={inputBeers}
+                  setChangeButton={setChangeButton}
+                  setInputBeers={setInputBeers}
+                  row={row}>
+                </ButtonSubmit>
               </TableCell>
             </TableRow>
           ))}

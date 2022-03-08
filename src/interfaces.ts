@@ -101,6 +101,4 @@ export interface TypeAction {
 
 export interface State {
   beers?: Beers[];
-  filterBeers?: Beers[];
-  changeBeers?: Beers[];
 }
